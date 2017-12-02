@@ -8,9 +8,6 @@ const styles = {
     justifyContent:'center',
     alignItems:'center'
   },
-  iconLeft:{
-    color:'#2BA6E2'
-  },
   nameBody:{
     justifyContent:'center',
     marginRight:180
@@ -19,10 +16,6 @@ const styles = {
     width:188,
     color:'black',
     fontSize:18,
-  },
-  iconRight:{
-    color:'black',
-    marginLeft:10,
   },
   txtDate:{
     marginRight:-10,

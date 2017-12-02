@@ -15,12 +15,11 @@ export default class DumpJson extends Component {
     this._handleResults = this._handleResults.bind(this);
   }
 
-  _handleResults(results) {
-    this.setState({ results });
+  _handleResults(data) {
+    this.setState({ data });
   }
-
   getData(){
-    return fetch('http://192.168.1.29:3000/IT')
+    return fetch('http://192.168.1.29:3000/KD')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({data: responseJson.feed.entry});
@@ -33,38 +32,45 @@ export default class DumpJson extends Component {
   componentDidMount(){
     this.getData();
   }
-
   render(){
     let articles = this.state.data.map(function(articleData, index){
       return (
+        <View>
         <View key={index}>
           <TouchableOpacity >
-          <Card style={styles.Card}>
-            <CardItem >
-              <Left>
-                <Icon name="list" size={25} style={styles.iconLeft}/>
-              </Left>
-              <Body style={styles.nameBody}>
-                <Text style={styles.txtBody}>{articleData.name.$t}</Text>
-              </Body>
-              <Right>
-                <Text style={styles.txtDate}>{articleData.Date.$t}</Text>
-              </Right>
-              <Right>
-                <Icon name="chevron-small-right" size={25} style={styles.iconRight}/>
-              </Right>
-            </CardItem>
-          </Card>
-        </TouchableOpacity>
-
-        
+            <Card style={styles.Card}>
+              <CardItem >
+                <Body style={styles.nameBody}>
+                  <Text style={styles.txtBody}>{articleData.name.$t}</Text>
+                </Body>
+              </CardItem>
+            </Card>
+          </TouchableOpacity>
+        </View>
         </View>
       )
     })
     return(
-      <Content>
-        {articles}
-      </Content>
+        
+    <Content >
+      <View >
+        <TouchableOpacity onPress={() => this.searchBar.show()}>
+          <Text>Hiện</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.searchBar.hide()}>
+          <Text>Ẩn</Text>
+        </TouchableOpacity>
+
+        <SearchBar
+          ref={(ref) => this.searchBar = ref}
+          handleResults={this._handleResults}
+          showOnLoad
+          placeholder = "Search Asset"
+        />
+      
+      </View>
+      {articles}
+    </Content>
     )
   }
 }

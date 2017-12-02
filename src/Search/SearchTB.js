@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Text
 } from 'react-native';
 import SearchBar from 'react-native-searchbar';
 
@@ -46,22 +47,6 @@ export default class SearchTB extends Component {
   _handleResults(results) {
     this.setState({ results });
   }
-  
-// // getData
-//   getData(){
-//     return fetch('http://localhost:3000/IT')
-//       .then((response) => response.json())
-//       .then((responseJson) => {
-//         this.setState({data: responseJson.feed.entry});
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   }
-
-//   componentDidMount(){
-//     this.getData();
-//   }
 
   render() {
     return (
