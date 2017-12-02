@@ -19,10 +19,11 @@ export default class DumpJson extends Component {
     this.setState({ data });
   }
   getData(){
-    return fetch('http://192.168.1.29:3000/KD')
+    // có thể thay localhost = địa chỉ ip của máy
+    return fetch('http://192.168.1.21:3005/IT')
       .then((response) => response.json())
       .then((responseJson) => {
-        this.setState({data: responseJson.feed.entry});
+        this.setState({data: responseJson.data});
       })
       .catch((error) => {
         console.error(error);
@@ -36,12 +37,13 @@ export default class DumpJson extends Component {
     let articles = this.state.data.map(function(articleData, index){
       return (
         <View>
-        <View key={index}>
+        <View >
           <TouchableOpacity >
             <Card style={styles.Card}>
               <CardItem >
                 <Body style={styles.nameBody}>
-                  <Text style={styles.txtBody}>{articleData.name.$t}</Text>
+                  {/* fetch dữ liệu */}
+                  <Text style={styles.txtBody}>{articleData.ho}</Text>
                 </Body>
               </CardItem>
             </Card>

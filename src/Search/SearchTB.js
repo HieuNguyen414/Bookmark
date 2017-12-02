@@ -8,36 +8,36 @@ import {
 import SearchBar from 'react-native-searchbar';
 
 // dữ liệu
-const items = [
-  1337,
-  'janeway',
-  {
-    lots: 'of',
-    different: {
-      types: 0,
-      data: false,
-      that: {
-        can: {
-          be: {
-            quite: {
-              complex: {
-                hidden: [ 'gold!' ],
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-  [ 4, 2, 'tree' ],
-];
+// const items = [
+//   1337,
+//   'janeway',
+//   {
+//     lots: 'of',
+//     different: {
+//       types: 0,
+//       data: false,
+//       that: {
+//         can: {
+//           be: {
+//             quite: {
+//               complex: {
+//                 hidden: [ 'gold!' ],
+//               },
+//             },
+//           },
+//         },
+//       },
+//     },
+//   },
+//   [ 4, 2, 'tree' ],
+// ];
 
 export default class SearchTB extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      items,
+      // items,
       results: [],
       // data:[]
     };
