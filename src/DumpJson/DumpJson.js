@@ -41,10 +41,16 @@ export default class DumpJson extends Component {
           <TouchableOpacity >
             <Card style={styles.Card}>
               <CardItem >
+                <Left>
+                  <Text >{articleData.ten}</Text>
+                </Left>
                 <Body style={styles.nameBody}>
                   {/* fetch dữ liệu */}
                   <Text style={styles.txtBody}>{articleData.ho}</Text>
                 </Body>
+                <Right>
+                  <Text >{articleData.ngaysinh}</Text>
+                </Right>
               </CardItem>
             </Card>
           </TouchableOpacity>
